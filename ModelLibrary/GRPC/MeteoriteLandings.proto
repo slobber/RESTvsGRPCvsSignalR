@@ -8,6 +8,7 @@ import "google/protobuf/timestamp.proto";
 
 service MeteoriteLandingsService {
 	rpc GetVersion(EmptyRequest) returns (Version) {}
+	rpc GetSmallPayload(EmptyRequest) returns (stream Version) {}
 	rpc GetLargePayload(EmptyRequest) returns (stream MeteoriteLanding) {}
 	rpc GetLargePayloadAsList(EmptyRequest) returns (MeteoriteLandingList) {}
 	rpc PostLargePayload(MeteoriteLandingList) returns (StatusResponse) {}
