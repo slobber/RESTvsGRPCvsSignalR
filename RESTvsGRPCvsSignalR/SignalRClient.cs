@@ -17,12 +17,15 @@ public class SignalRClient
     {
       options.SkipNegotiation = true;
       options.Transports = HttpTransportType.WebSockets;
+      options.TransportMaxBufferSize = 65536 * 8;
+      options.ApplicationMaxBufferSize = 65536 * 8;
     }).AddMessagePackProtocol().Build();
 
   public SignalRClient()
   {
     client.StartAsync().Wait();
   }
+
 
   public async Task<string> GetSmallPayloadAsync()
   {
